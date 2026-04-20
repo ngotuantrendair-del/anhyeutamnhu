@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<meta name="apple-mobile-web-app-title" content="Tâm Như ♡"/>
+<title>Tâm Như ♡</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --pink:#ff6fa8;--red:#ff4d79;--pink3:#ffc2db;--peach:#ffb347;
+  --lilac:#d4a8ff;--bg:#fff5f8;--bg3:#fff0f5;
+  --text:#4a2040;--text2:#9b6080;--text3:#c99ab5;
+  --radius:20px;--rsm:14px;--shadow:0 4px 24px rgba(255,111,168,.13)
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;top:0;left:0;right:0;height:300px;background:linear-gradient(160deg,#ffe0ef 0%,#fff5f8 60%,transparent 100%);pointer-events:none;z-index:0}
+.hearts-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.hf{position:absolute;opacity:.12;animation:floatUp linear infinite}
+@keyframes floatUp{0%{transform:translateY(100vh) scale(.8) rotate(-10deg);opacity:0}10%{opacity:.14}90%{opacity:.12}100%{transform:translateY(-10vh) scale(1.1) rotate(10deg);opacity:0}}
+.wrap{position:relative;z-index:1;max-width:520px;margin:0 auto;padding:2rem 1.1rem 5rem;animation:fadeUp .6s cubic-bezier(.22,1,.36,1) both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* HERO */
+.hero{text-align:center;margin-bottom:1.75rem}
+.hero-heart{font-size:48px;line-height:1;display:inline-block;animation:hb 1.4s ease-in-out infinite}
+@keyframes hb{0%,100%{transform:scale(1)}14%{transform:scale(1.18)}28%{transform:scale(1)}42%{transform:scale(1.12)}56%{transform:scale(1)}}
+.hero-name{font-family:'Pacifico',cursive;font-size:32px;color:var(--pink);margin:6px 0 3px;text-shadow:0 2px 14px rgba(255,111,168,.22)}
+.hero-sub{font-size:13px;color:var(--text2);font-weight:600}
+.hero-quote{margin:12px auto 0;max-width:300px;font-size:12px;color:var(--text3);font-style:italic;line-height:1.6}
+
+/* DATE PILL */
+.date-pill{display:flex;align-items:center;justify-content:center;gap:6px;background:#fff;border:1.5px solid var(--pink3);border-radius:999px;padding:6px 16px;font-size:12px;font-weight:700;color:var(--pink);width:fit-content;margin:0 auto 1.5rem;box-shadow:0 2px 10px rgba(255,111,168,.12)}
+
+/* INFO BANNER */
+.info-banner{display:flex;align-items:flex-start;gap:10px;background:linear-gradient(135deg,#fff8ff,#f3eeff);border:1.5px solid #f0d6ff;border-radius:var(--rsm);padding:11px 14px;margin-bottom:1.25rem;font-size:12px;font-weight:700;color:#9b6ae8;line-height:1.5}
+.info-banner span{font-size:18px;flex-shrink:0;margin-top:1px}
+
+/* PROGRESS */
+.prog-card{background:#fff;border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow);margin-bottom:1.25rem;border:1.5px solid #ffe0ef}
+.prog-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.prog-lbl{font-size:12px;font-weight:700;color:var(--text2)}
+.prog-pct{font-size:17px;font-weight:900;color:var(--pink)}
+.prog-track{height:7px;background:#ffe8f3;border-radius:999px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--pink),var(--peach));border-radius:999px;transition:width .5s cubic-bezier(.22,1,.36,1);width:0%}
+.mood{font-size:11px;color:var(--text3);margin-top:7px;text-align:center;font-weight:600}
+
+/* SECTION */
+.sec-lbl{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:800;color:var(--text2);letter-spacing:.08em;text-transform:uppercase;margin:1.4rem 0 .65rem}
+.sdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.du{background:var(--red);box-shadow:0 0 0 3px rgba(255,77,121,.18)}
+.dn{background:var(--lilac);box-shadow:0 0 0 3px rgba(212,168,255,.2)}
+
+/* TASK */
+.task-list{display:flex;flex-direction:column;gap:9px}
+.tc{background:#fff;border:1.5px solid #ffe8f3;border-radius:var(--radius);padding:13px 14px;display:flex;align-items:center;gap:11px;cursor:pointer;transition:transform .18s,box-shadow .18s,opacity .2s;box-shadow:0 2px 10px rgba(255,111,168,.07);position:relative;overflow:hidden;-webkit-tap-highlight-color:transparent}
+.tc::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,rgba(255,158,200,.07) 0%,transparent 60%);pointer-events:none}
+.tc:active{transform:scale(.97)}
+.tc.done{opacity:.4}
+.tc.done .tn{text-decoration:line-through}
+.chk{width:27px;height:27px;border-radius:50%;border:2px solid var(--pink3);background:transparent;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px;color:transparent;transition:all .22s cubic-bezier(.22,1,.36,1);-webkit-tap-highlight-color:transparent}
+.chk.on{background:linear-gradient(135deg,var(--pink),var(--red));border-color:var(--pink);color:#fff;animation:ph .3s cubic-bezier(.22,1,.36,1)}
+@keyframes ph{0%{transform:scale(.5)}60%{transform:scale(1.25)}100%{transform:scale(1)}}
+.ti{flex:1;min-width:0}
+.tn{font-size:13px;font-weight:700;color:var(--text);line-height:1.35}
+.tt{font-size:11px;color:var(--text3);margin-top:2px;font-weight:600}
+.bdg{font-size:10px;font-weight:800;letter-spacing:.04em;padding:3px 10px;border-radius:999px;flex-shrink:0}
+.bu{background:#ffecef;color:var(--red);border:1px solid #ffccd6}
+.bn{background:#f3eeff;color:#9b6ae8;border:1px solid #ddc9ff}
+.bd{background:#fff0fa;color:var(--pink);border:1px solid var(--pink3)}
+.del{width:24px;height:24px;border-radius:50%;background:transparent;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text3);opacity:0;transition:opacity .2s,color .2s,background .2s;flex-shrink:0;font-size:14px;-webkit-tap-highlight-color:transparent}
+.tc:hover .del{opacity:1}
+.del:hover{color:var(--red);background:#ffecef}
+
+/* ADD */
+.add-wrap{margin-top:1.75rem;background:#fff;border:1.5px solid #ffe0ef;border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+.add-hdr{display:flex;align-items:center;gap:6px;margin-bottom:11px;font-size:13px;font-weight:800;color:var(--pink)}
+.add-fields{display:flex;flex-direction:column;gap:7px}
+.add-row{display:flex;gap:7px;flex-wrap:wrap}
+.add-fields input,.add-fields select{padding:10px 13px;background:var(--bg3);border:1.5px solid #ffd6e9;border-radius:var(--rsm);color:var(--text);font-family:'Nunito',sans-serif;font-size:13px;font-weight:600;outline:none;transition:border-color .2s,box-shadow .2s;width:100%;-webkit-appearance:none}
+.add-fields input::placeholder{color:var(--text3);font-weight:500}
+.add-fields input:focus,.add-fields select:focus{border-color:var(--pink);box-shadow:0 0 0 3px rgba(255,111,168,.12)}
+.add-fields select{width:auto;min-width:120px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23c99ab5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:28px}
+.add-btn{width:100%;padding:12px;background:linear-gradient(135deg,var(--pink),var(--red));border:none;border-radius:var(--rsm);color:#fff;font-family:'Nunito',sans-serif;font-size:14px;font-weight:900;cursor:pointer;transition:opacity .2s,transform .15s;box-shadow:0 4px 14px rgba(255,77,121,.25);-webkit-tap-highlight-color:transparent}
+.add-btn:active{transform:scale(.97)}
+
+/* LOVE NOTE */
+.love{margin-top:1.4rem;background:linear-gradient(135deg,#fff0f8,#fce8ff);border:1.5px solid #f8c8e8;border-radius:var(--radius);padding:14px 16px;text-align:center;box-shadow:0 2px 10px rgba(255,111,168,.1)}
+.love-e{font-size:22px;margin-bottom:5px}
+.love-t{font-size:12px;color:var(--text2);font-weight:600;line-height:1.6}
+.love-s{font-family:'Pacifico',cursive;font-size:14px;color:var(--pink);margin-top:7px}
+
+/* FOOTER */
+.footer{display:flex;align-items:center;justify-content:space-between;margin-top:1.1rem;flex-wrap:wrap;gap:7px}
+.fstat{font-size:12px;color:var(--text2);font-weight:700}
+.rbtn{font-size:11px;font-weight:700;background:transparent;border:1.5px solid #ffd6e9;border-radius:999px;color:var(--text3);padding:5px 13px;cursor:pointer;transition:all .2s;-webkit-tap-highlight-color:transparent}
+.rbtn:active{color:var(--pink);border-color:var(--pink)}
+
+/* TOAST */
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);background:linear-gradient(135deg,var(--pink),var(--red));color:#fff;font-weight:800;font-size:13px;padding:10px 22px;border-radius:999px;opacity:0;transition:opacity .3s,transform .35s cubic-bezier(.22,1,.36,1);pointer-events:none;z-index:9000;white-space:nowrap;box-shadow:0 4px 18px rgba(255,77,121,.35)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.empty{font-size:12px;color:var(--text3);padding:9px 4px;font-weight:600}
+
+/* NEW DAY POPUP */
+.nd-overlay{position:fixed;inset:0;z-index:9999;background:rgba(255,111,168,.15);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.nd-overlay.show{opacity:1;pointer-events:all}
+.nd-card{background:#fff;border-radius:28px;padding:28px 24px;text-align:center;max-width:280px;box-shadow:0 16px 60px rgba(255,77,121,.2);border:2px solid #ffd6e9;animation:popUp .45s cubic-bezier(.22,1,.36,1)}
+@keyframes popUp{from{transform:scale(.75) translateY(30px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
+.nd-e{font-size:44px;margin-bottom:10px}
+.nd-title{font-family:'Pacifico',cursive;font-size:20px;color:var(--pink);margin-bottom:7px}
+.nd-msg{font-size:13px;color:var(--text2);font-weight:600;line-height:1.6;margin-bottom:18px}
+.nd-btn{background:linear-gradient(135deg,var(--pink),var(--red));border:none;border-radius:999px;color:#fff;font-family:'Nunito',sans-serif;font-size:14px;font-weight:900;padding:11px 26px;cursor:pointer;box-shadow:0 4px 14px rgba(255,77,121,.28)}
+</style>
+</head>
+<body>
+
+<div class="hearts-bg" id="hbg"></div>
+
+<div class="nd-overlay" id="nd">
+  <div class="nd-card">
+    <div class="nd-e">🌸</div>
+    <div class="nd-title">Ngày mới rồi!</div>
+    <div class="nd-msg">Chào buổi sáng Tâm Như ơi!<br>Danh sách đã được làm mới.<br>Hôm nay cũng cố gắng nhé! 💗</div>
+    <button class="nd-btn" onclick="closeND()">Bắt đầu ngày mới ✨</button>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-heart">💗</div>
+    <div class="hero-name">Tâm Như</div>
+    <div class="hero-sub">Bảng nhắc nhở yêu thương ✨</div>
+    <p class="hero-quote">"Dù hay quên đến đâu, em luôn nhớ được rằng có người yêu em rất nhiều 🌸"</p>
+  </div>
+
+  <div class="date-pill"><span>🌷</span><span id="dtxt">Hôm nay</span><span>🌷</span></div>
+
+  <div class="info-banner">
+    <span>🔄</span>
+    <div>Tự động làm mới mỗi sáng — danh sách reset lúc 0:00 mỗi ngày. Dữ liệu lưu trong bookmark, không cần internet! 💜</div>
+  </div>
+
+  <div class="prog-card">
+    <div class="prog-top">
+      <span class="prog-lbl" id="plbl">Hôm nay làm được...</span>
+      <span class="prog-pct" id="ppct">0%</span>
+    </div>
+    <div class="prog-track"><div class="prog-fill" id="pfill"></div></div>
+    <div class="mood" id="mood">Bắt đầu ngày mới nào Tâm Như ơi! 💪</div>
+  </div>
+
+  <div class="sec-lbl"><span class="sdot du"></span>Quan trọng — nhớ nhé!</div>
+  <div class="task-list" id="lu"></div>
+
+  <div class="sec-lbl"><span class="sdot dn"></span>Trong ngày hôm nay</div>
+  <div class="task-list" id="ln"></div>
+
+  <div class="add-wrap">
+    <div class="add-hdr"><span>💌</span> Thêm nhắc nhở mới</div>
+    <div class="add-fields">
+      <input type="text" id="ntask" placeholder="Nhập việc cần làm nhé Tâm Như..." maxlength="70"/>
+      <div class="add-row">
+        <input type="text" id="ntime" placeholder="Thời gian (vd: 7:00 SA)" style="flex:1;min-width:130px"/>
+        <select id="npri">
+          <option value="n">Bình thường 💜</option>
+          <option value="u">Khẩn cấp 🚨</option>
+        </select>
+      </div>
+      <button class="add-btn" onclick="addTask()">💕 Thêm vào danh sách</button>
+    </div>
+  </div>
+
+  <div class="love">
+    <div class="love-e">💌</div>
+    <div class="love-t" id="lnote"></div>
+    <div class="love-s">— Người yêu em ♡</div>
+  </div>
+
+  <div class="footer">
+    <span class="fstat" id="fstat">Hãy bắt đầu thôi nào! ✨</span>
+    <button class="rbtn" onclick="manualReset()">↺ Đặt lại</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ── Dữ liệu mặc định ── */
+const DEFAULT = [
+  {id:1, n:"Uống thuốc buổi sáng", t:"7:00 SA", p:"u", d:0},
+  {id:2, n:"Ăn sáng đầy đủ — đừng bỏ bữa nha em 🍳", t:"7:30 SA", p:"u", d:0},
+  {id:3, n:"Mang theo: chìa khoá, ví, điện thoại", t:"Trước khi ra ngoài", p:"u", d:0},
+  {id:4, n:"Uống đủ nước (ít nhất 2 lít) 💧", t:"Cả ngày", p:"n", d:0},
+  {id:5, n:"Skincare buổi sáng 🌸", t:"8:00 SA", p:"n", d:0},
+  {id:6, n:"Kiểm tra tin nhắn & email quan trọng", t:"9:00 SA", p:"n", d:0},
+  {id:7, n:"Ăn trưa đúng giờ 🍱", t:"12:00 TR", p:"n", d:0},
+  {id:8, n:"Nghỉ ngơi 15 phút sau bữa trưa 😴", t:"12:30 TR", p:"n", d:0},
+  {id:9, n:"Uống thuốc buổi tối", t:"8:00 CH", p:"u", d:0},
+  {id:10, n:"Skincare buổi tối 🌙", t:"9:00 CH", p:"n", d:0},
+  {id:11, n:"Chuẩn bị đồ dùng cho ngày mai", t:"9:30 CH", p:"n", d:0},
+  {id:12, n:"Tắt bếp, khoá cửa trước khi ngủ 🔑", t:"10:30 CH", p:"u", d:0},
+];
+
+const NOTES = [
+  "Tâm Như ơi, hôm nay cũng cố gắng nhé!<br>Dù có quên gì thì cũng đừng tự trách mình nha 🌸",
+  "Em là người đặc biệt nhất — kể cả khi hay quên.<br>Người yêu luôn ở đây nhắc em! 💕",
+  "Từng việc nhỏ em làm được hôm nay đều đáng tự hào lắm đó Tâm Như 🌷",
+  "Không cần hoàn hảo, chỉ cần cố gắng là đủ rồi em ơi 🥰",
+  "Mỗi ngày mới là một cơ hội mới — Tâm Như làm được! 💗",
+];
+
+const TOASTS = ["Giỏi lắm Tâm Như! 💗","Thêm 1 điểm yêu thương! 🌸","Em làm được rồi! 🎀","Tuyệt vời quá! 💕","Tâm Như xuất sắc! ✨","Cưng ơi, giỏi ghê! 🥰"];
+
+/* ── State ── */
+let tasks = [], nid = 100;
+
+/* ── Ngày hôm nay dạng YYYYMMDD ── */
+function today() {
+  const d = new Date();
+  return d.getFullYear()*10000 + (d.getMonth()+1)*100 + d.getDate();
+}
+
+/* ── Encode/decode state vào URL hash (base64) ── */
+function encodeState() {
+  try {
+    const obj = { tasks, nid, date: today() };
+    return btoa(unescape(encodeURIComponent(JSON.stringify(obj))));
+  } catch(e){ return ''; }
+}
+
+function decodeState(hash) {
+  try {
+    return JSON.parse(decodeURIComponent(escape(atob(hash))));
+  } catch(e){ return null; }
+}
+
+function saveState() {
+  try { history.replaceState(null, '', '#' + encodeState()); } catch(e){}
+}
+
+function loadState() {
+  const hash = location.hash.slice(1);
+  if (!hash) { tasks = JSON.parse(JSON.stringify(DEFAULT)); return 'fresh'; }
+  const p = decodeState(hash);
+  if (!p) { tasks = JSON.parse(JSON.stringify(DEFAULT)); return 'fresh'; }
+  /* Ngày mới → reset done */
+  if ((p.date || 0) !== today()) {
+    tasks = (p.tasks || JSON.parse(JSON.stringify(DEFAULT))).map(t => ({...t, d:0}));
+    nid   = p.nid || 100;
+    saveState();
+    return 'newday';
+  }
+  tasks = p.tasks || JSON.parse(JSON.stringify(DEFAULT));
+  nid   = p.nid   || 100;
+  return 'same';
+}
+
+/* ── Tự reset khi qua 0:00 (app đang mở) ── */
+function scheduleReset() {
+  const now  = new Date();
+  const next = new Date(now.getFullYear(), now.getMonth(), now.getDate()+1, 0, 0, 3);
+  setTimeout(function(){
+    tasks = tasks.map(t => ({...t, d:0}));
+    saveState(); render(); updateDate();
+    showND(); scheduleReset();
+  }, next - now);
+}
+
+/* ── UI helpers ── */
+function esc(s){ return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+let tTimer;
+function toast(msg){
+  const el=document.getElementById('toast');
+  el.textContent=msg; el.classList.add('show');
+  clearTimeout(tTimer); tTimer=setTimeout(()=>el.classList.remove('show'),2100);
+}
+
+function showND(){ document.getElementById('nd').classList.add('show'); }
+function closeND(){ document.getElementById('nd').classList.remove('show'); }
+
+function updateDate(){
+  const now=new Date();
+  const dn=['Chủ Nhật','Thứ Hai','Thứ Ba','Thứ Tư','Thứ Năm','Thứ Sáu','Thứ Bảy'];
+  document.getElementById('dtxt').textContent=dn[now.getDay()]+', ngày '+now.getDate()+' tháng '+(now.getMonth()+1)+' năm '+now.getFullYear();
+}
+
+/* ── Render ── */
+function renderList(id, pri) {
+  const el = document.getElementById(id);
+  const items = tasks.filter(t => t.p===pri);
+  if (!items.length){ el.innerHTML='<div class="empty">✨ Chưa có việc nào — thêm bên dưới nhé!</div>'; return; }
+  el.innerHTML = items.map(t => {
+    const bc = t.d ? 'bd' : (t.p==='u' ? 'bu' : 'bn');
+    const bt = t.d ? '✓ Xong' : (t.p==='u' ? '🚨 Khẩn' : '💜 OK');
+    return `<div class="tc ${t.p==='u'?'urg':''} ${t.d?'done':''}" onclick="toggle(${t.id})">
+      <button class="chk ${t.d?'on':''}" onclick="event.stopPropagation();toggle(${t.id})">${t.d?'♡':''}</button>
+      <div class="ti"><div class="tn">${esc(t.n)}</div><div class="tt">🕐 ${esc(t.t)}</div></div>
+      <span class="bdg ${bc}">${bt}</span>
+      <button class="del" onclick="event.stopPropagation();del(${t.id})">✕</button>
+    </div>`;
+  }).join('');
+}
+
+function updateProgress(){
+  const done=tasks.filter(t=>t.d).length, total=tasks.length;
+  const pct=total?Math.round(done/total*100):0;
+  document.getElementById('pfill').style.width=pct+'%';
+  document.getElementById('ppct').textContent=pct+'%';
+  document.getElementById('plbl').textContent=done+' / '+total+' việc hoàn thành';
+  const ms=['Thêm việc cần làm phía dưới nhé! 🌸','Bắt đầu ngày mới nào Tâm Như ơi! 💪','Tốt lắm! Tiếp tục nhé em 💕','Được rồi! Cố thêm chút nữa thôi 🌷','Gần xong rồi! Em làm tốt lắm 🥰','Tâm Như xuất sắc! Xong hết rồi! 🎉💗'];
+  const i=!total?0:!done?1:pct<30?2:pct<60?3:pct<100?4:5;
+  document.getElementById('mood').textContent=ms[i];
+  document.getElementById('fstat').textContent=(done===total&&total>0)?'Hoàn thành tất cả! 🎉 Tuyệt vời!':'Còn '+(total-done)+' việc nữa thôi em ơi!';
+}
+
+function render(){ renderList('lu','u'); renderList('ln','n'); updateProgress(); }
+
+/* ── Actions ── */
+function toggle(id){
+  const t=tasks.find(x=>x.id===id); if(!t) return;
+  t.d=t.d?0:1;
+  if(t.d) toast(TOASTS[Math.floor(Math.random()*TOASTS.length)]);
+  saveState(); render();
+}
+
+function del(id){ tasks=tasks.filter(t=>t.id!==id); saveState(); render(); }
+
+function addTask(){
+  const name=document.getElementById('ntask').value.trim();
+  if(!name){document.getElementById('ntask').focus();return;}
+  const time=document.getElementById('ntime').value.trim()||'Bất cứ lúc nào';
+  const pri=document.getElementById('npri').value;
+  tasks.push({id:nid++, n:name, t:time, p:pri, d:0});
+  document.getElementById('ntask').value='';
+  document.getElementById('ntime').value='';
+  saveState(); render();
+  toast('Đã thêm nhắc nhở mới! 💌');
+}
+
+function manualReset(){
+  if(!confirm('Đặt lại tất cả về chưa xong nhé Tâm Như? 💗')) return;
+  tasks=tasks.map(t=>({...t,d:0}));
+  saveState(); render();
+  toast('Đặt lại rồi! Cùng bắt đầu lại nào! ✨');
+}
+
+document.getElementById('ntask').addEventListener('keydown', e=>{ if(e.key==='Enter') addTask(); });
+
+/* ── Floating hearts ── */
+const hc=document.getElementById('hbg');
+const he=['💗','💕','🌸','💝','✨','🌷','💖','🩷'];
+for(let i=0;i<16;i++){
+  const h=document.createElement('span'); h.className='hf';
+  h.textContent=he[Math.floor(Math.random()*he.length)];
+  h.style.left=Math.random()*100+'vw';
+  h.style.animationDuration=(12+Math.random()*14)+'s';
+  h.style.animationDelay=(-Math.random()*20)+'s';
+  h.style.fontSize=(13+Math.random()*14)+'px';
+  hc.appendChild(h);
+}
+
+/* ── Khởi động ── */
+document.getElementById('lnote').innerHTML = NOTES[Math.floor(Math.random()*NOTES.length)];
+updateDate();
+const status = loadState();
+render();
+if(status==='newday') showND();
+scheduleReset();
+</script>
+</body>
+</html>
